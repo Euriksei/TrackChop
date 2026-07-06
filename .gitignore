@@ -1,0 +1,62 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# =========================
+# Virtual Environment
+# =========================
+venv/
+.env/
+.venv/
+
+# =========================
+# Flask / Runtime
+# =========================
+instance/
+*.log
+
+# =========================
+# Arquivos gerados pelo app
+# =========================
+data/uploads/
+data/resultados/
+uploads/
+resultados/
+biblioteca.json
+
+# =========================
+# Build / Installer
+# =========================
+dist/
+build/
+*.spec
+*.exe
+*.msi
+
+# Inno Setup
+*.iss.bak
+Output/
+setup/
+
+# =========================
+# IDEs
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Sistema operacional
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Demucs / modelos baixados
+# =========================
+.cache/
+torch/

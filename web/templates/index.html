@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrackChop</title>
+<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="console">
+  <div class="nameplate">
+    <h1>TrackChop</h1>
+    <span>@Matheus Euriques</span>
+  </div>
+
+  <div id="biblioteca">
+    <div class="titulo-secao">Biblioteca</div>
+    <div id="linha-biblioteca">
+      <select id="seletor-biblioteca">
+        <option value="" disabled selected>Escolher música salva…</option>
+      </select>
+      <button id="remover-biblioteca" title="remover a música selecionada">✕</button>
+    </div>
+  </div>
+
+  <div id="slot">
+    <p class="principal">Solte uma música aqui</p>
+    <p class="secundario">ou clique para escolher · mp3, wav, m4a, flac</p>
+  </div>
+  <input type="file" id="arquivo-input" accept=".mp3,.wav,.m4a,.flac,.ogg,.aac">
+
+  <div id="mesa">
+    <div id="nome-musica"></div>
+    <div class="strips">
+      {% for faixa in faixas %}
+      <div class="strip" data-chave="{{ faixa.chave }}" style="--cor: var(--{{ faixa.chave }});">
+        <div class="fader-track"><div class="fader-fill"></div></div>
+        <div class="volume-label"></div>
+        <div class="track-label">{{ faixa.label }}</div>
+        <a class="baixar" href="#" download>baixar</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div id="status-linha">na fila…</div>
+
+    <div id="transporte">
+      <button id="botao-play">▶</button>
+      <div id="barra-tempo">
+        <input type="range" id="scrubber" min="0" max="1000" value="0">
+        <span id="tempos">0:00 / 0:00</span>
+      </div>
+    </div>
+    <p id="dica">arraste os faders pra ajustar o volume de cada faixa — duplo clique muta/restaura</p>
+  </div>
+
+  <div id="erro"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>
