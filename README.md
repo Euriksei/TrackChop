@@ -74,11 +74,13 @@ py -3.12 -m venv venv
 ```
 
 3. Ativar o ambiente virtual
+PowerShell
 
 ```PowerShell
 .venv\venve\Scripts|activate.ps1 
 ```
 
+CMD
 ```CMD
 venv\Scripts\activate.bat
 ```
