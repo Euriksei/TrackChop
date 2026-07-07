@@ -1,5 +1,5 @@
 # TrackChop
- V1.0.0
+ ### V1.0.1
 
 TrackChop é uma aplicação web que separa músicas em múltiplas faixas usando IA (Demucs),
 permitindo ouvir cada instrumento de forma isolada diretamente no navegador. Ideal para tirar músicas e praticar.
@@ -16,20 +16,90 @@ Tudo roda localmente no seu computador.
 
 ---
 
-# 1. 💻 Instalação
+# 📦 Download
 
-1. Baixar o instalador
+O TrackChop pode ser utilizado de duas formas:
+
+* Instalador (.exe) — recomendado para a maioria dos usuários.
+* Código-fonte — para quem deseja estudar, modificar ou contribuir com o projeto.
+
+---
+
+## 💻 Instalação via executável (.exe)
+
+### 1. Baixar o instalador
+
+A versão mais recente do TrackChop está disponível na página de **Releases**
+
+**➡️ [Baixar a versão mais recente](https://github.com/Euriksei/TrackChop/releases/latest)**
+
+O arquivo disponibilizado será:
 
 ```text
 TrackChopInstaller.exe
 ```
-2. Instalar
 
-Selecione a pasta de destino e aguarde o processo de instalação.
+---
 
-3. Abrir o Aplicativo
-Use o atalho criado para abrir a pagina web e 
+### 2. Instalar
+
+Ao executar o .exe elecione a pasta de destino e aguarde o processo de instalação.
+
+---
+
+### 3. Abrir o Aplicativo
+
+Use o atalho criado para abrir a pagina web em 
 (http://localhost:5000) acessar as funcionalidades da aplicação
+
+---
+
+## 👨‍💻 Executando a partir do código-fonte
+
+Caso prefira utilizar o repositório clonado, siga os passos abaixo.
+
+1. Clonar o repositório 
+* Crie uma pasta e abra o CMD dentro dela
+
+```CMD
+git clone https://github.com/Euriksei/trackchop.git 
+cd trackchop
+```
+
+2. A versão python utlizada no projeto foi a 3.12, caso você esta utilizando outra,
+vamos optar por utilizar um ambiente virtual com a versão recomendada.
+
+```Python
+py -3.12 -m venv venv
+```
+
+3. Ativar o ambiente virtual
+
+```PowerShell
+.venv\venve\Scripts|activate.ps1 
+```
+
+```CMD
+venv\Scripts\activate.bat
+```
+
+4. Dentro do venv instale as dependencias
+
+```CMD
+pip install -r requirements.txt
+```
+
+5. Executar a aplicação
+
+```Python
+py app/app.py
+```
+
+Após iniciar o servidor, abra o navegador e acesse:
+
+http://localhost:5000
+
+
 
 ## 📱 Utilização em Celular (mesma rede Wi-Fi)
 
@@ -74,6 +144,8 @@ do CMD aberta para que o programa continue rodando.
 Abra esse endereço no navegador. Arraste uma música e acompanhe as faixas "acendendo"
 conforme ficam prontas.
 
+---
+
 ## 🎵 Usando o player
 
 Depois que todas as faixas terminam de processar, aparece um player embaixo da mesa:
@@ -100,6 +172,7 @@ nome pra abrir o player instantaneamente, sem esperar o processamento de novo.
   do item.
 - Isso funciona mesmo depois de fechar e abrir o servidor de novo — os dados não se perdem.
 
+---
 
 ## ⚠️ Limitações importantes
 
@@ -108,7 +181,33 @@ nome pra abrir o player instantaneamente, sem esperar o processamento de novo.
 - **Tamanho máximo de upload**: 100MB por arquivo (tamanho ajustavem em novas versões).
 - Primeira execução do Demucs pode demorar (download do modelo ~300MB)
 
-🚀 Observações
+---
+
+# ⭐ Próximas Features
+
+Algumas funcionalidades planejadas para as próximas versões do TrackChop:
+
+* 🎚️ **Mute e Solo**:
+Permitir mutar ou isolar uma faixa inteira com apenas um clique.
+
+* 🎼 **Alteração de tom (Pitch Shift)**
+Aumentar ou diminuir o tom da música sem a necessidade de reprocessá-la.
+
+* 🎧 **Controle de panorama (Pan)**
+Ajustar o posicionamento de cada faixa entre os canais esquerdo e direito do fone ou caixa de som.
+
+* 🔊 **Controle de ganho (Gain)**
+Permitir aumentar ou reduzir o volume de uma faixa além do nível original.
+
+* ⚡ **Melhorias de desempenho**
+Otimizações no processamento e na interface para reduzir o tempo de espera e melhorar a experiência de uso.
+
+* 📱 **Melhor experiência em dispositivos móveis**
+Ajustes na interface para tornar o uso mais confortável em celulares e tablets.
+
+---
+
+# 🚀 Observações
 
 Este projeto foi feito para uso local e experimental, focado em:
 
@@ -117,6 +216,8 @@ Este projeto foi feito para uso local e experimental, focado em:
 - Manipulação de áudio em tempo real
 - integração backend + frontend
 - Prática musical
+
+---
 
 # 🧠 Arquitetura técnica
 
@@ -131,4 +232,3 @@ Este projeto foi feito para uso local e experimental, focado em:
 * Player sincronizado multi-áudio
 * Faders de volume individuais
 * Biblioteca local via
-

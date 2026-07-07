@@ -8,20 +8,20 @@ __pycache__/
 *.pyc
 
 # =========================
-# Virtual Environment
+# Virtual Environment (DEV only)
 # =========================
 venv/
-.env/
 .venv/
+.env/
 
 # =========================
-# Flask / Runtime
+# Flask runtime / logs
 # =========================
 instance/
 *.log
 
 # =========================
-# Arquivos gerados pelo app
+# Dados gerados em runtime (NÃO versionar)
 # =========================
 data/uploads/
 data/resultados/
@@ -30,18 +30,33 @@ resultados/
 biblioteca.json
 
 # =========================
-# Build / Installer
+# Build Python (PyInstaller / similar)
 # =========================
-dist/
 build/
+dist/
 *.spec
-*.exe
-*.msi
 
-# Inno Setup
-*.iss.bak
+# =========================
+# Inno Setup (IMPORTANTE)
+# =========================
 Output/
 setup/
+*.iss.bak
+*.tmp
+
+# Ignorar instaladores gerados (EXE final)
+*Installer.exe
+*Setup.exe
+*.msi
+
+# =========================
+# Cache de dependências pesadas
+# =========================
+.cache/
+torch/
+.models/
+*.pt
+*.pth
 
 # =========================
 # IDEs
@@ -54,9 +69,3 @@ setup/
 # =========================
 .DS_Store
 Thumbs.db
-
-# =========================
-# Demucs / modelos baixados
-# =========================
-.cache/
-torch/

@@ -16,21 +16,24 @@
 
   *{ box-sizing: border-box; }
 
-  body{
+body{
     margin:0;
     background: radial-gradient(ellipse at top, #262320 0%, #1c1a17 60%);
     color: var(--text);
     font-family: 'Inter', sans-serif;
-    min-height:100vh;
+
     display:flex;
-    align-items:flex-start;
     justify-content:center;
-    padding: 48px 20px;
-  }
+    align-items:flex-start;
+
+    min-height:100svh;
+    padding:24px 20px;
+}
 
   .console{
     width:100%;
     max-width: 640px;
+    overflow:hidden;
     background: var(--panel);
     border: 1px solid var(--edge);
     border-radius: 6px;
@@ -71,9 +74,15 @@
     color: var(--muted);
     margin-bottom: 8px;
   }
-  #linha-biblioteca{ display:flex; gap: 8px; }
-  #seletor-biblioteca{
+  #linha-biblioteca{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+
+#seletor-biblioteca{
     flex:1;
+    min-width:0;
     background: var(--panel-raised);
     border: 1px solid var(--edge);
     border-radius: 4px;
@@ -83,19 +92,34 @@
     padding: 9px 10px;
     outline: none;
     cursor: pointer;
-  }
-  #seletor-biblioteca:focus{ border-color: var(--bateria); }
-  #remover-biblioteca{
+}
+
+#seletor-biblioteca:focus{
+    border-color: var(--bateria);
+}
+
+#remover-biblioteca{
+    width:40px;              /* largura fixa */
+    height:40px;             /* mesma altura do select */
+    padding:0;
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
     background: var(--panel-raised);
     border: 1px solid var(--edge);
     border-radius: 4px;
     color: var(--muted);
     cursor:pointer;
-    font-size: 13px;
-    padding: 0 14px;
-    flex-shrink:0;
-  }
-  #remover-biblioteca:hover{ color: var(--baixo); border-color: var(--baixo); }
+    font-size:16px;
+}
+
+#remover-biblioteca:hover{
+    color: var(--baixo);
+    border-color: var(--baixo);
+}
 
   /* --- Slot de upload --- */
   #slot{
@@ -280,4 +304,22 @@
   @media (max-width: 480px){
     .strips{ grid-template-columns: repeat(3, 1fr); }
     .strip{ padding: 8px 4px 10px; }
+
+    #linha-biblioteca{
+    gap:6px;
+  }
+
+  #remover-biblioteca{
+    width:40px;
+    height:40px;
+    font-size:16px;
+  }
+
+    body{
+    padding:16px;
+    }
+
+    .console{
+    padding:20px;
+    }
   }
