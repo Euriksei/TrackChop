@@ -15,7 +15,22 @@
 <div class="console">
   <div class="nameplate">
     <h1>TrackChop</h1>
-    <span>@Matheus Euriques</span>
+    <span></span>
+  </div>
+  <button id="botao-ajuda" type="button" title="como funciona">?</button>
+
+  <div id="painel-ajuda" aria-hidden="true">
+    <div class="ajuda-topo">
+      <strong>Como usar</strong>
+      <button id="fechar-ajuda" type="button" title="fechar">✕</button>
+    </div>
+    <ul>
+      <li>Envie uma musica para separar as faixas.</li>
+      <li>Use fader para volume (ate 200%).</li>
+      <li>Use Mute/Solo para controlar a audição das faixas.</li>
+      <li>Dois toques no fader voltam para 100% e no Pan centralizam.</li>
+      <li>Use o botao Downloads para baixar as faixas prontas.</li>
+    </ul>
   </div>
 
   <div id="biblioteca">
@@ -35,30 +50,85 @@
   <input type="file" id="arquivo-input" accept=".mp3,.wav,.m4a,.flac,.ogg,.aac">
 
   <div id="mesa">
-    <div id="nome-musica"></div>
+    <div id="acoes-mesa">
+      <button id="voltar-importacao" class="botao-secundario" type="button">Voltar</button>
+      <div id="nome-musica"></div>
+      <button id="abrir-downloads" class="botao-secundario" type="button">Downloads</button>
+    </div>
+    <div id="painel-downloads" aria-hidden="true">
+      <div class="titulo-secao">Baixar Faixas</div>
+      <div id="lista-downloads"></div>
+    </div>
     <div class="strips">
       {% for faixa in faixas %}
       <div class="strip" data-chave="{{ faixa.chave }}" style="--cor: var(--{{ faixa.chave }});">
+        <div class="mobile-main">
+          <div class="mobile-track-name">{{ faixa.label }}</div>
+          <div class="mobile-controls-row">
+            <div class="mobile-volume">
+              <input class="volume-slider" type="range" min="0" max="200" value="100" disabled>
+              <span class="volume-slider-label">100%</span>
+            </div>
+            <div class="mobile-actions">
+              <div class="mobile-ms-stack">
+                <button class="mobile-action mute-btn-mobile" type="button" title="mute" disabled>M</button>
+                <button class="mobile-action solo-btn-mobile" type="button" title="solo" disabled>S</button>
+              </div>
+              <button class="mobile-action pot-btn" type="button" title="panorama" disabled aria-label="abrir panorama">
+                <span class="pot-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="strip-controles-topo">
+          <button class="toggle-faixa mute-btn" type="button" disabled>Mute</button>
+          <button class="toggle-faixa solo-btn" type="button" disabled>Solo</button>
+        </div>
         <div class="fader-track"><div class="fader-fill"></div></div>
         <div class="volume-label"></div>
+        <div class="pan-controle">
+          <div class="pan-head">
+            <span>Pan</span>
+            <span class="pan-label">C</span>
+          </div>
+          <input class="pan-slider" type="range" min="-100" max="100" value="0" disabled>
+        </div>
         <div class="track-label">{{ faixa.label }}</div>
-        <a class="baixar" href="#" download>baixar</a>
       </div>
       {% endfor %}
     </div>
+
+    <div id="painel-pan-mobile" aria-hidden="true">
+      <div class="pan-mobile-card">
+        <div class="pan-mobile-topo">
+          <strong id="pan-mobile-titulo">Panorama</strong>
+          <button id="pan-mobile-fechar" type="button" title="fechar">✕</button>
+        </div>
+        <div class="pan-mobile-valor" id="pan-mobile-valor">C</div>
+        <input id="pan-mobile-slider" type="range" min="-100" max="100" value="0">
+        <div class="pan-mobile-extremos">
+          <span>L</span>
+          <span>C</span>
+          <span>R</span>
+        </div>
+      </div>
+    </div>
+
     <div id="status-linha">na fila…</div>
 
     <div id="transporte">
+      <button id="botao-backward" title="voltar 5 segundos">-5s</button>
       <button id="botao-play">▶</button>
+      <button id="botao-forward" title="avancar 5 segundos">+5s</button>
       <div id="barra-tempo">
         <input type="range" id="scrubber" min="0" max="1000" value="0">
         <span id="tempos">0:00 / 0:00</span>
       </div>
     </div>
-    <p id="dica">arraste os faders pra ajustar o volume de cada faixa — duplo clique muta/restaura</p>
   </div>
 
   <div id="erro"></div>
+  <div id="toast" aria-live="polite" aria-atomic="true"></div>
 </div>
 
 <script src="{{ url_for('static', filename='js/app.js') }}"></script>

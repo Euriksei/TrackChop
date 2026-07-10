@@ -4,6 +4,23 @@ Todas as alterações importantes do projeto serão documentadas aqui.
 
 ---
 
+## v1.2.0 - 10/07/2026
+
+### Melhorias
+
+- Controle de panorama (direcional no fone de ouvido)
+- Gain control (aumentar o volume de uma faixa além do nível original)
+- Botão mute e solo permitindo isolar ou silenciar uma faixa inteira com um clique
+- Melhoria no layout para telas pequenas
+- Adicionado botão de voltar 5s e avançar 5s no player
+- Adição de um botão de instrução de uso para o usuário
+
+### Correções
+
+- Corrigido layout para telas pequenas
+
+---
+
 ## v1.0.1 - 07/07/2026
 
 ### Melhorias

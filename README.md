@@ -1,5 +1,5 @@
 # TrackChop
- ### V1.0.1
+ ### V1.2.0
 
 TrackChop é uma aplicação web que separa músicas em múltiplas faixas usando IA (Demucs),
 permitindo ouvir cada instrumento de forma isolada diretamente no navegador. Ideal para tirar músicas e praticar.
@@ -12,7 +12,8 @@ Você pode separar:
 - voz
 - outros
 
-Tudo roda localmente no seu computador.
+Tudo roda localmente no seu computador exigindo certo uso da GPU e aproximadamente 3GB de espaço em disco,
+não levando em consideração as musicas adicionadas.
 
 ---
 
@@ -49,8 +50,16 @@ Ao executar o .exe elecione a pasta de destino e aguarde o processo de instalaç
 
 ### 3. Abrir o Aplicativo
 
-Use o atalho criado para abrir a pagina web em 
-(http://localhost:5000) acessar as funcionalidades da aplicação
+Use o atalho criado para abrir a pagina web e
+acessar as funcionalidades da aplicação
+
+# 🗑️ Desinstalação
+
+Para desinstalar o TrackChop, basta abrir o local do arquivo de instalação e executar o arquivo `uninstall.exe`. 
+Isso removerá todos os arquivos do TrackChop do seu computador. 
+
+Se a pasta venv persistir, você pode removê-la manualmente. Ela contém o 
+ambiente virtual do Python e não é necessária após a desinstalação.
 
 ---
 
@@ -73,15 +82,25 @@ vamos optar por utilizar um ambiente virtual com a versão recomendada.
 py -3.12 -m venv venv
 ```
 
-3. Ativar o ambiente virtual
+3. Ative o ambiente virtual
 
+Se estiver usando **PowerShell**:
 ```PowerShell
-.venv\venve\Scripts|activate.ps1 
+.\venv\Scripts\activate.ps1 
 ```
 
+Se estiver usando o **Prompt de Comando (CMD)**:
 ```CMD
 venv\Scripts\activate.bat
 ```
+
+Após a ativação, o terminal deverá exibir algo semelhante a:
+
+```text
+(venv) C:\Users\Admin\Desktop\Projetos\TrackChop>
+```
+
+Isso indica que o ambiente virtual foi ativado com sucesso.
 
 4. Dentro do venv instale as dependencias
 
@@ -187,23 +206,18 @@ nome pra abrir o player instantaneamente, sem esperar o processamento de novo.
 
 Algumas funcionalidades planejadas para as próximas versões do TrackChop:
 
-* 🎚️ **Mute e Solo**:
-Permitir mutar ou isolar uma faixa inteira com apenas um clique.
-
 * 🎼 **Alteração de tom (Pitch Shift)**
 Aumentar ou diminuir o tom da música sem a necessidade de reprocessá-la.
-
-* 🎧 **Controle de panorama (Pan)**
-Ajustar o posicionamento de cada faixa entre os canais esquerdo e direito do fone ou caixa de som.
-
-* 🔊 **Controle de ganho (Gain)**
-Permitir aumentar ou reduzir o volume de uma faixa além do nível original.
 
 * ⚡ **Melhorias de desempenho**
 Otimizações no processamento e na interface para reduzir o tempo de espera e melhorar a experiência de uso.
 
 * 📱 **Melhor experiência em dispositivos móveis**
 Ajustes na interface para tornar o uso mais confortável em celulares e tablets.
+
+* 🌐 **Disponibilidade online (em nuvem)** 
+Hospedagem online para não ser necessário o uso da GPU local, possibilitando processar 
+músicas de qualquer lugar, sem depender do computador.
 
 ---
 

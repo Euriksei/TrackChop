@@ -49,6 +49,9 @@ app = Flask(
     static_folder=str(WEB_DIR / "static"),
 )
 app.config["MAX_CONTENT_LENGTH"] = 100 * 1024 * 1024  # 100 MB por upload
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
+app.jinja_env.auto_reload = True
 
 jobs = {}
 fila = queue.Queue()
