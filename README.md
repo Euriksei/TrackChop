@@ -82,14 +82,13 @@ vamos optar por utilizar um ambiente virtual com a versão recomendada.
 py -3.12 -m venv venv
 ```
 
-3. Ative o ambiente virtual
+3. Ativar o ambiente virtual
 
 Se estiver usando **PowerShell**:
 ```PowerShell
 .\venv\Scripts\activate.ps1 
 ```
 
-Se estiver usando o **Prompt de Comando (CMD)**:
 ```CMD
 venv\Scripts\activate.bat
 ```
